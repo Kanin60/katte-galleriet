@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import * as contentful from "contentful"
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [headerImg, setHeaderImg] = useState()
+
+  const client = contentful.createClient({
+    space: `${import.meta.env.VITE_PUBLIC_SPACE_ID}`,//Husk at udfyld .env-filen
+    environment: "master",
+    accessToken: `${import.meta.env.VITE_PUBLIC_ACCESS_TOKEN}`,
+  })
+
+  useEffect(() => {
+    client.getEntries().then((entry) => setHeaderImg(entry)).catch(console.error())
+  }, [])
+  console.log(headerImg);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
