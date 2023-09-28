@@ -30,7 +30,7 @@ export const Section2 = () => {
                             {item.fields.galleryImage &&
                                 <figure>
                                     <img src={`https:${item.fields.galleryImage.fields.file.url}`} />
-                                    <p>{item.fields.galleryImage.fields.title}</p>
+                                    <p>{item.fields.title}</p>
                                 </figure>
                             }
                         </div>

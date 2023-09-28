@@ -1,6 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import * as contentful from "contentful"
-import { useEffect, useState } from 'react'
 import './App.css'
 import { Header } from "./component/Header/Header";
 import { Section1 } from "./component/Section1/Section1"
@@ -15,7 +12,6 @@ function App() {
       <Section1 />
       <Section2 />
       <Footer />
-
     </>
   )
 }
