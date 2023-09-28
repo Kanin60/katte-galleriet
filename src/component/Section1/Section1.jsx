@@ -1,6 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import * as contentful from "contentful"
 import { useEffect, useState } from 'react'
+import style from "./Section1.module.scss"
 
 export const Section1 = () => {
 
@@ -22,7 +23,7 @@ export const Section1 = () => {
     return (
         <>
             {description &&
-                <section>
+                <section className={style.section1}>
                     <h1>{description.items[0].fields.headline}</h1>
                     <article>{documentToReactComponents(description.items[0].fields.description)}</article>
                 </section>

@@ -1,6 +1,6 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import * as contentful from "contentful"
 import { useEffect, useState } from 'react'
+import style from "./Section2.module.scss";
 
 export const Section2 = () => {
 
@@ -13,25 +13,30 @@ export const Section2 = () => {
     })
 
     useEffect(() => {
-        client.getEntries()
+
+        client.getEntries({ content_type: 'section2' })
             .then((entry) => setGallery(entry))
             .catch(console.error())
     }, [])
+    console.log(gallery);
 
     return (
 
-        <section>
+        <section className={style.section2}>
             {
                 gallery?.items.map((item, index) => {
                     return (
-                        <figure key={index}>
-                            {item.fields.galleryImage && <img style={{ width: "10%" }} src={`https:${item.fields.galleryImage.fields.file.url}`} />}
-                        </figure>
-
+                        <div key={index}>
+                            {item.fields.galleryImage &&
+                                <figure>
+                                    <img src={`https:${item.fields.galleryImage.fields.file.url}`} />
+                                    <p>{item.fields.galleryImage.fields.title}</p>
+                                </figure>
+                            }
+                        </div>
                     )
                 })
             }
         </section>
-
     )
 }
