@@ -24,7 +24,7 @@ export const Section1 = () => {
             {description &&
                 <section>
                     <h1>{description.items[0].fields.headline}</h1>
-                    <p>{documentToReactComponents(description.items[0].fields.description)}</p>
+                    <article>{documentToReactComponents(description.items[0].fields.description)}</article>
                 </section>
             }
         </>
