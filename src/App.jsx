@@ -2,6 +2,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import * as contentful from "contentful"
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Header } from "./conponent/Header/Header";
+import { Section1 } from "./conponent/Section1/Section1"
+import { Section2 } from "./conponent/Section2/Section2";
 
 function App() {
 
@@ -17,27 +20,13 @@ function App() {
     client.getEntries()
       .then((entry) => setHeaderImg(entry))
       .catch(console.error())
-
-
   }, [])
-  console.log(headerImg);
 
   return (
     <>
-      <h1>Gallery</h1>
-      {headerImg?.items.map((item, index) => {
-        return (
-          
-          <article key={index}>
-         
-            {documentToReactComponents(item.fields.description)}
-
-          {item.fields.galleryImage && <img src={`https:${item.fields.galleryImage.fields.file.url}`} />}
-        </article>
-
-        )
-      })}
-
+      <Header />
+      <Section1 />
+      <Section2 />
 
     </>
   )
