@@ -1,10 +1,11 @@
 //En footer der forklarer hvem i har været om at lave siden
 import logo from '../../assets/logo3.png'
 import logo2 from'../../assets/logoK.png'
+import style from './Footer.module.scss'
 export const Footer = () => {
 
     return (
-        <>
+        <div className={style.footer}>
             <article>
             <h2>Kanin og Kat </h2>
                 <p>Projektet "Kanin og Kat" er et spændende samarbejde mellem gruppemedlemmerne Amina og Kamilla. Amina har gjort en fantastisk indsats med at håndtere opsætningen af Contentful, herunder definering af content types og organisering af data. Derudover har hun været ansvarlig for udviklingen af Header, Section 1 og 2 samt Footer på vores platform.
@@ -17,7 +18,7 @@ export const Footer = () => {
                 <img src={logo2} alt="logo" />
             </figure>
 
-        </>
+        </div>
 
     )
 
