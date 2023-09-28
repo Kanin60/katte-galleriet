@@ -14,12 +14,12 @@ export const Section1 = () => {
     })
 
     useEffect(() => {
-        client.getEntries()
+        client.getEntries({ content_type: 'section1' })
             .then((entry) => setDescription(entry))
             .catch(console.error())
     }, [])
 
-
+    // console.log("description", description);
     return (
         <>
             {description &&
