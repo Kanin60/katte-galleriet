@@ -1,5 +1,5 @@
 //En footer der forklarer hvem i har været om at lave siden
-import logo from '../../assets/logo3.png'
+import logo from '../../assets/Alogo.png'
 import logo2 from '../../assets/logoK.png'
 import style from './Footer.module.scss'
 export const Footer = () => {
