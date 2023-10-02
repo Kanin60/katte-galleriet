@@ -1,6 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import * as contentful from "contentful"
 import { useEffect, useState } from 'react'
+import style from "./Section1.module.scss"
 
 export const Section1 = () => {
 
@@ -13,18 +14,18 @@ export const Section1 = () => {
     })
 
     useEffect(() => {
-        client.getEntries()
+        client.getEntries({ content_type: 'section1' })
             .then((entry) => setDescription(entry))
             .catch(console.error())
     }, [])
 
-
+    // console.log("description", description);
     return (
         <>
             {description &&
-                <section>
+                <section className={style.section1}>
                     <h1>{description.items[0].fields.headline}</h1>
-                    <p>{documentToReactComponents(description.items[0].fields.description)}</p>
+                    <article>{documentToReactComponents(description.items[0].fields.description)}</article>
                 </section>
             }
         </>

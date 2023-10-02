@@ -1,0 +1,17 @@
+.section2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    figure{
+        img{
+            width: 100%;
+            border-radius: 20px;
+        }
+        p{
+            font-size: 2rem;
+            text-align: center;
+            color: #cf6a18;
+        }
+    }
+}

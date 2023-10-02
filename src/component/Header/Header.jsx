@@ -1,5 +1,6 @@
 import * as contentful from "contentful"
 import { useEffect, useState } from 'react'
+import style from "./Header.module.scss";
 
 export const Header = () => {
 
@@ -22,7 +23,7 @@ export const Header = () => {
         <>
             {
                 headerImg &&
-                <img src={headerImg.items[10].fields.image.fields.file.url} alt={headerImg.items[10].fields.image.fields.title} />
+                <img className={style.headerImg} src={headerImg.items[10].fields.image.fields.file.url} alt={headerImg.items[10].fields.image.fields.title} />
             }
         </>
     )

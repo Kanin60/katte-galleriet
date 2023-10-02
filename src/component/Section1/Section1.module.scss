@@ -1,0 +1,16 @@
+.section1{
+    h1{
+        font-size: 10em;
+        background: -webkit-linear-gradient(#ebc47c, #cf6a18);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+    }
+    article{
+        p{
+            margin: 1em 0;
+            font-size: 2em;
+            text-align: justify;
+        }
+    }
+}
